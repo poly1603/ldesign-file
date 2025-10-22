@@ -1,0 +1,28 @@
+{
+  "name": "@ldesign/file",
+  "version": "0.1.0",
+  "description": "LDesign 文件处理库 - 上传、下载、分片、断点续传、压缩",
+  "keywords": ["ldesign", "file", "upload", "download", "chunk", "resume"],
+  "author": "LDesign Team",
+  "license": "MIT",
+  "type": "module",
+  "main": "./lib/index.cjs",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
+  "scripts": {
+    "build": "ldesign-builder build -f esm,cjs,dts",
+    "dev": "ldesign-builder watch",
+    "lint": "eslint . --fix"
+  },
+  "dependencies": {
+    "@ldesign/http": "workspace:*",
+    "@ldesign/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@ldesign/builder": "workspace:*",
+    "@antfu/eslint-config": "^6.0.0",
+    "eslint": "^9.18.0",
+    "typescript": "^5.7.3"
+  }
+}
+
