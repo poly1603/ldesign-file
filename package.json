@@ -2,16 +2,43 @@
   "name": "@ldesign/file",
   "version": "0.1.0",
   "description": "LDesign 文件处理库 - 上传、下载、分片、断点续传、压缩",
-  "keywords": ["ldesign", "file", "upload", "download", "chunk", "resume"],
+  "keywords": [
+    "ldesign",
+    "file",
+    "upload",
+    "download",
+    "chunk",
+    "resume"
+  ],
   "author": "LDesign Team",
   "license": "MIT",
   "type": "module",
+  "exports": {
+    ".": {
+      "types": "./es/index.d.ts",
+      "import": "./es/index.js",
+      "require": "./lib/index.cjs"
+    }
+  },
   "main": "./lib/index.cjs",
   "module": "./es/index.js",
   "types": "./es/index.d.ts",
+  "unpkg": "./dist/index.min.js",
+  "jsdelivr": "./dist/index.min.js",
+  "files": [
+    "README.md",
+    "LICENSE",
+    "package.json",
+    "es",
+    "lib",
+    "dist"
+  ],
   "scripts": {
-    "build": "ldesign-builder build -f esm,cjs,dts",
-    "dev": "ldesign-builder watch",
+    "build": "ldesign-builder build",
+    "build:watch": "ldesign-builder build --watch",
+    "dev": "ldesign-builder build --mode development --watch",
+    "clean": "rimraf es lib dist coverage",
+    "prepublishOnly": "pnpm run clean && pnpm run build",
     "lint": "eslint . --fix"
   },
   "dependencies": {
@@ -25,9 +52,3 @@
     "typescript": "^5.7.3"
   }
 }
-
-
-
-
-
-
